@@ -4,8 +4,16 @@ import Item from "./Item";
 function ShoppingList({ items }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  function handleSelectCategory(e) {    
+  function handleSelectCategory(e) {
     setSelectedCategory(e.target.value);
+  }
+
+  function buildItemList(items) {
+    return (
+      items.map((item) => (
+        <Item key={item.id} name={item.name} category={item.category} />
+      ))
+    );
   }
 
   return (
@@ -19,9 +27,10 @@ function ShoppingList({ items }) {
         </select>
       </div>
       <ul className="Items">
-        {items.map((item) => (
-          <Item key={item.id} name={item.name} category={item.category} />
-        ))}
+        {
+          buildItemList(items)
+
+        }
       </ul>
     </div>
   );
