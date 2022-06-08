@@ -8,16 +8,16 @@ function App() {
   // this will be used for the Dark Mode Toggle feature
   const [darkMode, setDarkMode] = useState(false);
   const appClass = darkMode ? "App dark" : "App light"
+  const buttonText = darkMode ? "Dark Mode" : "Light Mode"
 
   function handleModeSwitch() {
-    console.log('switching mode')
     setDarkMode(!darkMode)
   }
   return (
     <div className={appClass}>
       <header>
         <h2>Shopster</h2>
-        <button onClick={handleModeSwitch}>{appClass}</button>
+        <button onClick={handleModeSwitch}>{buttonText}</button>
       </header>
       <ShoppingList items={itemData} />
     </div>
