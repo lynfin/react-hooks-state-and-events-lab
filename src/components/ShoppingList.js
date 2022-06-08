@@ -9,8 +9,10 @@ function ShoppingList({ items }) {
   }
 
   function buildItemList(items) {
+    const filteredItems = items.filter(item => item.category === selectedCategory || selectedCategory === "All");
+    
     return (
-      items.map((item) => (
+      filteredItems.map((item) => (
         <Item key={item.id} name={item.name} category={item.category} />
       ))
     );
